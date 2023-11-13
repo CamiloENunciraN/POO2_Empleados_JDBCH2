@@ -1,18 +1,20 @@
 
 package poo2.ufps.controllers;
 
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.TextField;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import poo2.ufps.model.Manage;
 
 public class EmpleadosController implements Initializable{
@@ -45,18 +47,18 @@ Button cmbGuardar;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       this.myManage=new Manage();
-      this.cmbEliminar.setEnabled(false);
-      this.cmbCargarDetalles.setEnabled(false);
-      this.cmbActualizar.setEnabled(false);
-      this.cmbGuardar.setEnabled(false);
-      this.txtId2.setEnabled(false);
-      this.txtNombre2.setEnabled(false);
-      this.txtEdad2.setEnabled(false);
-      this.txtSalario2.setEnabled(false);
+      this.cmbEliminar.setDisable(true);
+      this.cmbCargarDetalles.setDisable(true);
+      this.cmbActualizar.setDisable(true);
+      this.cmbGuardar.setDisable(true);
+      this.txtId2.setDisable(true);
+      this.txtNombre2.setDisable(true);
+      this.txtEdad2.setDisable(true);
+      this.txtSalario2.setDisable(true);
       this.lvEmpleados.setDisable(true);
     }
     
-    private void cmbAgregarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                         
+    private void cmbAgregarEmpleado(ActionEvent event) throws SQLException {                                         
         // TODO add your handling code here:
         String id=this.txtId.getText();
         String nombre=this.txtNombre.getText();
@@ -75,7 +77,7 @@ Button cmbGuardar;
         }
     }  
     
-    private void cmbListarEmpleadosActionPerformed (java.awt.event.ActionEvent evt) throws SQLException {
+    private void cmbListarEmpleados (ActionEvent event) throws SQLException {
         this.listarEmpleados();
     }
     private void listarEmpleados() throws SQLException{
@@ -88,14 +90,14 @@ Button cmbGuardar;
        }
         if(items.size()>1){
             this.lvEmpleados.setItems(items);
-            this.cmbEliminar.setEnabled(true);
-            this.cmbCargarDetalles.setEnabled(true);
+            this.cmbEliminar.setDisable(false);
+            this.cmbCargarDetalles.setDisable(false);
         }else{
-            this.cmbEliminar.setEnabled(false);
-            this.cmbCargarDetalles.setEnabled(false);
+            this.cmbEliminar.setDisable(true);
+            this.cmbCargarDetalles.setDisable(true);
         }
     }
-    private void cmbEliminarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                            
+    private void cmbEliminar(ActionEvent event) throws SQLException {                                            
         // TODO add your handling code here:
         String obj=(String) this.lvEmpleados.getSelectionModel().getSelectedItem();
         String [] empleado=obj.split("-");
@@ -104,7 +106,7 @@ Button cmbGuardar;
         this.ventanaEmergente(msg);
         this.listarEmpleados();
     }     
-    private void cmbCargarDetallesActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                                  
+    private void cmbCargarDetalles(ActionEvent event) throws SQLException {                                                  
         // TODO add your handling code here:
         String obj=(String) this.lvEmpleados.getSelectionModel().getSelectedItem();
         String [] empleado=obj.split("-");
@@ -117,24 +119,24 @@ Button cmbGuardar;
             this.txtNombre2.setText("");
             this.txtEdad2.setText("");
             this.txtSalario2.setText("");
-            this.cmbActualizar.setEnabled(false);
+            this.cmbActualizar.setDisable(true);
         }else{
             this.txtId2.setText(empleadoInfo[0]);
             this.txtNombre2.setText(empleadoInfo[1]);
             this.txtEdad2.setText(empleadoInfo[2]);
             this.txtSalario2.setText(empleadoInfo[3]);
-            this.cmbActualizar.setEnabled(true);
+            this.cmbActualizar.setDisable(false);
         }
 
     }  
-    private void cmbActualizarActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void cmbActualizar(ActionEvent event) {                                              
         // TODO add your handling code here:
             this.txtNombre2.setEditable(true);
             this.txtEdad2.setEditable(true);
             this.txtSalario2.setEditable(true);
-            this.cmbGuardar.setEnabled(true);  
+            this.cmbGuardar.setDisable(false);  
     }  
-    private void cmbGuardarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                           
+    private void cmbGuardar(ActionEvent event) throws SQLException {                                           
         // TODO add your handling code here:
         String id=this.txtId2.getText();
         String nombre=this.txtNombre2.getText();
@@ -154,8 +156,8 @@ Button cmbGuardar;
             this.txtNombre2.setEditable(false);
             this.txtEdad2.setEditable(false);
             this.txtSalario2.setEditable(false);
-            this.cmbGuardar.setEnabled(false);
-            this.cmbActualizar.setEnabled(false);
+            this.cmbGuardar.setDisable(true);
+            this.cmbActualizar.setDisable(true);
 
             this.listarEmpleados();
         }
