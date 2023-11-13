@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.ufps.controllers.EmpleadosController">
+   <children>
+      <Label id="lblId" layoutX="38.0" layoutY="32.0" text="ID" />
+      <Label id="lblNombre" layoutX="134.0" layoutY="32.0" text="Nombre" />
+      <Label id="lblEdad" layoutX="36.0" layoutY="90.0" text="Edad" />
+      <Label id="lblSalario" layoutX="134.0" layoutY="90.0" text="Salario" />
+      <ListView id="lvEmpleados" layoutX="45.0" layoutY="224.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField id="txtNombre" layoutX="137.0" layoutY="48.0" prefHeight="24.0" prefWidth="102.0" />
+      <TextField id="txtId" layoutX="41.0" layoutY="48.0" prefHeight="24.0" prefWidth="70.0" />
+      <TextField id="txtEdad" layoutX="41.0" layoutY="106.0" prefHeight="24.0" prefWidth="70.0" />
+      <TextField id="txtSalario" layoutX="137.0" layoutY="106.0" prefHeight="24.0" prefWidth="102.0" />
+      <Button id="cmbAgregar" layoutX="179.0" layoutY="149.0" mnemonicParsing="false" text="Agregar" />
+      <Button id="cmbListarEmpleados" layoutX="38.0" layoutY="186.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="134.0" text="Listar Empleados" />
+      <Button id="cmbEliminar" layoutX="283.0" layoutY="250.0" mnemonicParsing="false" text="Eliminar" />
+      <Button id="cmbCargarDetalles" layoutX="283.0" layoutY="300.0" mnemonicParsing="false" text="Cargar Detalles" />
+      <Button id="cmbActualizar" layoutX="283.0" layoutY="351.0" mnemonicParsing="false" text="Actualizar" />
+      <Label id="lblId2" layoutX="37.0" layoutY="439.0" text="ID" />
+      <Label id="lblNombre2" layoutX="133.0" layoutY="439.0" text="Nombre" />
+      <Label id="lblEdad2" layoutX="35.0" layoutY="497.0" text="Edad" />
+      <Label id="lblSalario2" layoutX="133.0" layoutY="497.0" text="Salario" />
+      <TextField id="txtNombre2" layoutX="136.0" layoutY="455.0" prefHeight="24.0" prefWidth="102.0" />
+      <TextField id="txtId2" layoutX="40.0" layoutY="455.0" prefHeight="24.0" prefWidth="70.0" />
+      <TextField id="txtEdad2" layoutX="40.0" layoutY="513.0" prefHeight="24.0" prefWidth="70.0" />
+      <TextField id="txtSalario2" layoutX="136.0" layoutY="513.0" prefHeight="24.0" prefWidth="102.0" />
+      <Button id="cmbGuardar" layoutX="283.0" layoutY="513.0" mnemonicParsing="false" text="Guardar" />
+   </children>
+</AnchorPane>
